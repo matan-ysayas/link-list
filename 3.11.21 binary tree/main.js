@@ -10,7 +10,7 @@ function binarySearch(someArray, num) {
   let leftArray = someArray.slice(0, someArray.length / 2);//! המערך השמאלי מאיבר הראשון ועד האמצעי
   let rightArray = someArray.slice(someArray.length / 2);//!המערך הימני מהאיבר האמצעי ועד הסוף
 
-  if (num == mid ) { //! במידה והמספר שאנחנו מחפשים שווה לאיבר האמצעי הפונקציה מחזירה שהוא קיים ויוצאת
+  if (num == mid || num==leftArray[leftArray.length-1] ||num==rightArray[0]) { //! במידה והמספר שאנחנו מחפשים שווה לאיבר האמצעי או לאיבר האחרון במערך השמאלי או לאיבר הראשון במערך הימיני הפונקציה מחזירה שהוא קיים ויוצאת
     console.log(`${num} is true `);
     return true;
   }
@@ -22,4 +22,4 @@ function binarySearch(someArray, num) {
   }
 }
 
-binarySearch(array, -1);
+binarySearch(array, 18);
