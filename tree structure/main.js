@@ -37,40 +37,82 @@ let family2 = {
         },
       ],
     },
-    {name: "dad2",
-    child: [
-      {
-        name: "dad2Son1",
-        child: [
-          {
-            name: "dad2Son1Garnd1",
-          },
-        ],
-      },
-      {
-        name: "dad2Son1Garnd2",
-        child: [
-          {
-            name: "gen2grand2",
-            child: [
-              {
-                name: "gen2grand3",
-              },
-            ],
-          },
-        ],
-      },
-    ],}
+    {
+      name: "dad2",
+      child: [
+        {
+          name: "dad2Son1",
+          child: [
+            {
+              name: "dad2Son1Garnd1",
+            },
+          ],
+        },
+        {
+          name: "dad2Son1Garnd2",
+          child: [
+            {
+              name: "gen2grand2",
+              child: [
+                {
+                  name: "gen2grand3",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
-
 };
 
 function getName2(someTree) {
-  console.log(someTree.name);                     //!מדפיסה את השם של האובייקט
-  if (someTree.child) {                //!בודק האם יש ילד במידה וכן ממשיך
-    for (let item of someTree.child) {  //!הללואה הזאת רצה על המערך של הילדים עצמם ועבור כל ילד שקיים היא מפעילה את הפונקציה 
+  console.log(someTree.name); //!מדפיסה את השם של האובייקט
+  if (someTree.child) {
+    //!בודק האם יש ילד במידה וכן ממשיך
+    for (let item of someTree.child) {
+      //!הללואה הזאת רצה על המערך של הילדים עצמם ועבור כל ילד שקיים היא מפעילה את הפונקציה
       getName2(item);
     }
   }
 }
 getName2(family2);
+
+//****************************************************************************** */
+let linuxFillStructure = {
+  name: "/",
+  child: [
+    { name: "bin/" },
+    { name: "dev/" },
+    {
+      name: "etc/",
+      child: [{ name: "man/" }, { name: "bin/" }, { name: "lib/" }],
+    },
+    { name: "home/", child: [{ name: "sher" }, { name: "local/" }] },
+    { name: "lib/" },
+    { name: "sbin/" },
+    {
+      name: "temp/",
+      child: [
+        { name: "man/" },
+        { name: "bin/" },
+        { name: "lib/" },
+        { name: "sher/" },
+        { name: "local/" },
+      ],
+    },
+    { name: "var/" },
+    { name: "usr/" },
+  ],
+};
+
+function getName3(someTree) {
+    myDiv.innerHTML+=`${someTree.name}<P>`; 
+    if (someTree.child) {
+      for (let item of someTree.child) {
+        getName3(item);
+      }
+    }
+  };
+
+  getName3(linuxFillStructure)
